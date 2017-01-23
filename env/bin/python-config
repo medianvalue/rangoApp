@@ -1,4 +1,4 @@
-#!/Users/diomidis/code/djangoProjects/rangoApp/env/bin/python
+#!/Users/diomidis/code/djangoProjects/djangoApplications/env/bin/python
 
 import sys
 import getopt
