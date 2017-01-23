@@ -17,8 +17,11 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(TEMPLATE_PATH, 'templates')
 
-STATIC_DIR = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIR = [STATIC_DIR, ]
+STATIC_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+STATIC_DIR = os.path.join(STATIC_PATH, 'static')
+MEDIA_URL = '/media/'
+STATIC_URL = '/static/'
+
 
 print BASE_DIR
 print TEMPLATE_DIR
