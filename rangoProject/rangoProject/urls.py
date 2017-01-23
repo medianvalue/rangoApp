@@ -8,11 +8,9 @@ from django.conf.urls.static import static
 urlpatterns = [
 url(r'^$', views.index, name='index'),
 url(r'^rango/', include('rango.urls')),
-url(r'^about/', include('rango.urls')),
 url(r'^admin/', admin.site.urls),
 
 # above maps any URLs starting
 # with rango/ to be handled by
 # the rango application
-]
-
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

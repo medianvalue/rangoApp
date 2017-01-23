@@ -14,17 +14,25 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Directories
 TEMPLATE_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(TEMPLATE_PATH, 'templates')
 
 STATIC_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-STATIC_DIR = os.path.join(STATIC_PATH, 'static')
-MEDIA_URL = '/media/'
-STATIC_URL = '/static/'
 
+STATIC_DIR = os.path.join(STATIC_PATH, 'static')
+STATICFILES_DIRS = [STATIC_DIR, ]
+
+MEDIA_DIR = os.path.join(STATIC_PATH, 'media')
+MEDIA_ROOT = MEDIA_DIR
 
 print BASE_DIR
 print TEMPLATE_DIR
+print STATIC_PATH
+print STATIC_DIR
+print MEDIA_DIR
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
@@ -65,7 +73,7 @@ ROOT_URLCONF = 'rangoProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['TEMPLATE_DIR', ],
+        'DIRS': ['TEMPLATE_PATH', ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -73,6 +81,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media'
             ],
         },
     },
@@ -129,3 +138,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
