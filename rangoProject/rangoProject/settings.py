@@ -28,11 +28,11 @@ STATICFILES_DIRS = [STATIC_DIR, ]
 MEDIA_DIR = os.path.join(STATIC_PATH, 'media')
 MEDIA_ROOT = MEDIA_DIR
 
-print BASE_DIR
-print TEMPLATE_DIR
-print STATIC_PATH
-print STATIC_DIR
-print MEDIA_DIR
+#print BASE_DIR
+#print TEMPLATE_DIR
+#print STATIC_PATH
+#print STATIC_DIR
+#print MEDIA_DIR
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
