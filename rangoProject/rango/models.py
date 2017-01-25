@@ -6,10 +6,12 @@ from django.db import models
 
 class Category(models.Model) :
     name = models.CharField(max_length=128, unique=True)
+    views = models.IntegerField(default='0', null=False)
+    likes = models.IntegerField(default='0', null=False)
 
     class Meta:
         verbose_name_plural = 'Categories'
-        
+
     def __str__ (self):
         return self.name
     def __unicode__(self):
@@ -26,3 +28,9 @@ class Page(models.Model):
         return self.title
     def __unicode__ (self):
         return self.title
+
+
+
+
+#Update the Category model to include the additional
+#attributes views and likes where the default values for each are both zero (0).
