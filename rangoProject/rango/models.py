@@ -6,8 +6,8 @@ from django.db import models
 
 class Category(models.Model) :
     name = models.CharField(max_length=128, unique=True)
-    views = models.IntegerField(default='0', null=False)
-    likes = models.IntegerField(default='0', null=False)
+    views = models.IntegerField(default=0, null=False)
+    likes = models.IntegerField(default=0, null=False)
 
     class Meta:
         verbose_name_plural = 'Categories'
