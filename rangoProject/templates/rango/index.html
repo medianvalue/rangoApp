@@ -5,14 +5,18 @@
 	<body>
 		<h1>Rango says...</h1> <div>hey there partner!</div>
 		<div>
-			{% if categories %} <ul>
-				{% for category in categories %} <li>{{ category.name }}</li>
-				{% endfor %} </ul>
+			{% if categories %}
+			<ul>
+				{% for category in categories %}
+				<li>
+					<a href="/rango/category/{{ category.slug }}">{{ category.name }}</a>
+				</li>
+				{% endfor %}
+			</ul>
 				{% else %}
 				<strong>There are no categories present.</strong>
-				Warning
-				For this to work, you will have had to complete the exercises in the previous chapter where you need to add the field likes to the Category model.
-				{% endif %} </div>
+				{% endif %}
+			</div>
 				<div>
 					<a href="/rango/about/">About Rango</a><br />
 					<img src="{% static "images/rango.jpg" %}" alt="Picture of Rango" />
