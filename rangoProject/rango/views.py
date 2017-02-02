@@ -11,6 +11,7 @@ def index(request):
 
 def about(request):
 	context_dict = {'boldmessage': "About Page"}
+	return render(request, 'rango/about.html', context=context_dict)
 	return HttpResponse("rango says here is the about page")
 
 def show_category(request, category_name_slug):
