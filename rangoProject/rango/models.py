@@ -15,7 +15,7 @@ class Category(models.Model) :
         super(Category, self).save(*args, **kwargs)
 
     class Meta:
-        verbose_name_plural = 'categories'
+        verbose_name_plural = 'Categories'
 
     def __str__ (self):
             return self.name
@@ -24,7 +24,7 @@ class Category(models.Model) :
 
 
 class Page(models.Model):
-    category = models.ForeignKey(Category)
+    category = models.ForeignKey('Category')
     title = models.CharField(max_length=128)
     url = models.URLField()
     views = models.IntegerField(default=0)
@@ -33,9 +33,3 @@ class Page(models.Model):
         return self.title
     def __unicode__ (self):
         return self.title
-
-
-
-
-#Update the Category model to include the additional
-#attributes views and likes where the default values for each are both zero (0).

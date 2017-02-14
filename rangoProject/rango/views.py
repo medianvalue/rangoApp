@@ -1,8 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from rango.models import Category
 from rango.models import Page
 from rango.forms import CategoryForm
+from rango.forms import PageForm
+
 
 
 def index(request):
@@ -27,21 +29,16 @@ def show_category(request, category_name_slug):
 	except Category.DoesNotExist:
 		context_dict['category'] = None
 		context_dict['pages'] = None
-	return render(request, 'rango/category.html', context_dict)
+		return render(request, 'rango/category.html', context_dict)
 
 def add_category(request):
-		form = CategoryForm()
-		if request.method == 'POST':
-        		form = CategoryForm(request.POST)
-        # Have we been provided with a valid form?
-        	if form.is_valid():
-            # Save the new category to the database.
-            		form.save(commit=True)
-            # Now that the category is saved
-            # We could give a confirmation message
-            # But since the most recent category added is on the index page
-            # Then we can direct the user back to the index page.
-            		return index(request)
-        	else:
-				print(form.errors)
-		return render(request, 'rango/add_category.html', {'form': form})
+	form = CategoryForm()
+
+	if request.method == 'POST':
+		form = CategoryForm(request.POST)
+		if form.is_valid():
+			form.save(commit=True)
+			return index(request)
+		else:
+			print(form.errors)
+	return render(request, 'rango/add_category.html', {'form': form})
